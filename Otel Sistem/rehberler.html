@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rehberler - Zöhre Geziyor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: '#C5A059',
+                        teal: '#2C8583',
+                        darkOverlay: 'rgba(30, 20, 10, 0.65)',
+                        offWhite: '#F9F9F7', 
+                        lightGreen: '#F0F5F5',
+                        footerBg: '#4A3426',
+                        footerLight: '#5D4232',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Hero Arka Plan */
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .guide-card {
+            transition: all 0.3s ease;
+        }
+        .guide-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(44, 133, 131, 0.1);
+        }
+        
+        .guide-gradient {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+        }
+
+        .skill-badge {
+            background-color: #F0F5F5;
+            color: #4B5563;
+            transition: all 0.2s;
+        }
+        .guide-card:hover .skill-badge {
+            background-color: #2C8583;
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-[#FAFAFA]">
+
+    <nav class="bg-white border-b border-gray-100 px-8 py-5 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <img src="logo3.png" alt="Zöhre Geziyor Logo" class="h-12 w-auto object-contain">
+        </div>
+
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-teal transition">Ana Sayfa</a>
+            <a href="turlarimiz.html" class="hover:text-teal transition">Turlarımız</a>
+            <a href="hakkimizda.html" class="hover:text-teal transition">Hakkımızda</a>
+            <a href="rehberler.html" class="text-teal font-semibold">Rehberler</a> <a href="iletisim.html" class="hover:text-teal transition">İletişim</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-6">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fa-solid fa-phone text-teal"></i>
+                <span>+90 555 123 4567</span>
+            </div>
+            <button class="bg-white border border-gray-200 text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-50 transition">
+                Bize Ulaşın
+            </button>
+        </div>
+    </nav>
+
+    <div class="relative w-full h-[50vh] hero-bg flex items-center justify-center text-white text-center px-6">
+        <div class="absolute inset-0 bg-darkOverlay z-0"></div>
+        <div class="relative z-10 max-w-3xl">
+            <div class="inline-block bg-white/10 backdrop-blur-md border border-white/20 px-5 py-2 rounded-full mb-6">
+                <span class="text-gold font-bold text-sm tracking-wide uppercase">Uzman Kadromuz</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Yol <span class="text-teal">Arkadaşlarınız</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 leading-relaxed">
+                Her biri kendi alanında uzman, o coğrafyanın dilini, kültürünü ve ruhunu bilen profesyonel rehberlerimizle tanışın.
+            </p>
+        </div>
+    </div>
+
+    <section class="py-24 px-6 container mx-auto">
+        
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <button class="bg-teal text-white px-6 py-2 rounded-full text-sm font-bold shadow-md">Tümü</button>
+            <button class="bg-white border border-gray-200 text-gray-600 hover:text-teal hover:border-teal px-6 py-2 rounded-full text-sm font-medium transition">Orta Doğu</button>
+            <button class="bg-white border border-gray-200 text-gray-600 hover:text-teal hover:border-teal px-6 py-2 rounded-full text-sm font-medium transition">Orta Asya</button>
+            <button class="bg-white border border-gray-200 text-gray-600 hover:text-teal hover:border-teal px-6 py-2 rounded-full text-sm font-medium transition">Uzak Doğu</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <div class="guide-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm group">
+                <div class="relative h-96">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 guide-gradient"></div>
+                    <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full flex items-center gap-1 text-xs font-bold shadow-sm">
+                        <i class="fa-solid fa-star text-yellow-400"></i> 4.9
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-white z-10">
+                        <h3 class="font-serif text-2xl font-bold mb-1">Ahmet Yılmaz</h3>
+                        <p class="text-sm text-gray-200 opacity-90 mb-4">Kültür & Tarih Uzmanı</p>
+                        
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Türkçe</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Farsça</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">İngilizce</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        İran ve Pers tarihi üzerine 15 yıllık deneyim. Arkeoloji ve sanat tarihi konusunda akademik uzmanlık. Detaylara hakimiyeti ile bilinir.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">İran</span>
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Persepolis</span>
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">İsfahan</span>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                        <div class="flex gap-3">
+                            <a href="#" class="text-gray-400 hover:text-teal transition"><i class="fa-brands fa-instagram text-lg"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-teal transition"><i class="fa-brands fa-twitter text-lg"></i></a>
+                        </div>
+                        <a href="#" class="text-teal text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Profili İncele <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm group">
+                <div class="relative h-96">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 guide-gradient"></div>
+                    <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full flex items-center gap-1 text-xs font-bold shadow-sm">
+                        <i class="fa-solid fa-star text-yellow-400"></i> 4.8
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-white z-10">
+                        <h3 class="font-serif text-2xl font-bold mb-1">Mustafa Özkan</h3>
+                        <p class="text-sm text-gray-200 opacity-90 mb-4">Türk-İran Tarihi Uzmanı</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Türkçe</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Azerice</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Tebriz ve Kuzey İran kültürü uzmanı. Türk-İslam medeniyeti araştırmacısı ve yerel yaşam rehberi. Samimi anlatımıyla tanınır.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Tebriz</span>
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Kuzey İran</span>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                        <div class="flex gap-3">
+                            <a href="#" class="text-gray-400 hover:text-teal transition"><i class="fa-brands fa-instagram text-lg"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-teal transition"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                        </div>
+                        <a href="#" class="text-teal text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Profili İncele <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm group">
+                <div class="relative h-96">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 guide-gradient"></div>
+                    <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full flex items-center gap-1 text-xs font-bold shadow-sm">
+                        <i class="fa-solid fa-star text-yellow-400"></i> 4.9
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-white z-10">
+                        <h3 class="font-serif text-2xl font-bold mb-1">Elif Kaya</h3>
+                        <p class="text-sm text-gray-200 opacity-90 mb-4">Lüks Seyahat Uzmanı</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Türkçe</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Arapça</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">İngilizce</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Modern Arap dünyası ve lüks seyahat deneyimi konusunda uzman. VIP misafir ilişkilerinde deneyimli.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Dubai</span>
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Abu Dabi</span>
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Körfez</span>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                        <div class="flex gap-3">
+                            <a href="#" class="text-gray-400 hover:text-teal transition"><i class="fa-brands fa-instagram text-lg"></i></a>
+                        </div>
+                        <a href="#" class="text-teal text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Profili İncele <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm group">
+                <div class="relative h-96">
+                    <img src="https://randomuser.me/api/portraits/men/86.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 guide-gradient"></div>
+                    <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full flex items-center gap-1 text-xs font-bold shadow-sm">
+                        <i class="fa-solid fa-star text-yellow-400"></i> 4.9
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-white z-10">
+                        <h3 class="font-serif text-2xl font-bold mb-1">Süleyman Topçu</h3>
+                        <p class="text-sm text-gray-200 opacity-90 mb-4">Orta Asya Tarih Uzmanı</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Türkçe</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Rusça</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Özbekçe</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        İpek Yolu ve Orta Asya Türk tarihi uzmanı. 20 yıllık akademik kariyer ve saha deneyimi. Bölgeyi avucunun içi gibi bilir.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Özbekistan</span>
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Semerkant</span>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                        <div class="flex gap-3">
+                            <a href="#" class="text-gray-400 hover:text-teal transition"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                        </div>
+                        <a href="#" class="text-teal text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Profili İncele <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm group">
+                <div class="relative h-96">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 guide-gradient"></div>
+                    <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full flex items-center gap-1 text-xs font-bold shadow-sm">
+                        <i class="fa-solid fa-star text-yellow-400"></i> 4.8
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-white z-10">
+                        <h3 class="font-serif text-2xl font-bold mb-1">Zeynep Demir</h3>
+                        <p class="text-sm text-gray-200 opacity-90 mb-4">Gastronomi & Kültür</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Türkçe</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">İtalyanca</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Seyahatlerini lezzet duraklarıyla birleştiren, yerel mutfaklar ve sokak lezzetleri konusunda uzman rehberimiz.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Gastronomi</span>
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Yerel Lezzetler</span>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                        <div class="flex gap-3">
+                            <a href="#" class="text-gray-400 hover:text-teal transition"><i class="fa-brands fa-instagram text-lg"></i></a>
+                        </div>
+                        <a href="#" class="text-teal text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Profili İncele <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm group">
+                <div class="relative h-96">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 guide-gradient"></div>
+                    <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full flex items-center gap-1 text-xs font-bold shadow-sm">
+                        <i class="fa-solid fa-star text-yellow-400"></i> 5.0
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-white z-10">
+                        <h3 class="font-serif text-2xl font-bold mb-1">Caner Yıldız</h3>
+                        <p class="text-sm text-gray-200 opacity-90 mb-4">Fotoğraf & Doğa</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">Türkçe</span>
+                            <span class="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-[10px] uppercase tracking-wide">İngilizce</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Profesyonel fotoğrafçı ve doğa tutkunu. Gezginlere en iyi kareleri yakalamaları için eşsiz noktalar sunar.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Fotoğrafçılık</span>
+                        <span class="skill-badge text-[11px] font-bold px-3 py-1.5 rounded-full">Doğa</span>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                        <div class="flex gap-3">
+                            <a href="#" class="text-gray-400 hover:text-teal transition"><i class="fa-brands fa-instagram text-lg"></i></a>
+                        </div>
+                        <a href="#" class="text-teal text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Profili İncele <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bg-teal py-20 px-6 text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        
+        <div class="container mx-auto relative z-10 text-center max-w-2xl">
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6">Siz de Ekibimize Katılın</h2>
+            <p class="text-teal-100 text-lg mb-10 leading-relaxed">
+                Seyahat tutkunuzu mesleğe dönüştürmek, yeni kültürler keşfetmek ve bu keşifleri başkalarıyla paylaşmak ister misiniz? Profesyonel rehber kadromuza katılın.
+            </p>
+            <button class="bg-white text-teal hover:bg-gold hover:text-white font-bold py-4 px-10 rounded-full transition shadow-lg flex items-center gap-2 mx-auto">
+                Başvuru Formu <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <footer class="bg-footerBg text-gray-300">
+        <div class="border-b border-white/10">
+            <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="font-serif text-2xl font-bold text-white mb-2">En Güncel Turlardan Haberdar Olun</h3>
+                    <p class="text-sm text-gray-400">Özel fırsatlar, yeni rotalar ve seyahat ipuçları için bültenimize abone olun.</p>
+                </div>
+                <div class="flex w-full md:w-auto gap-2">
+                    <div class="relative flex-grow md:flex-grow-0">
+                        <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                        <input type="email" placeholder="E-posta adresiniz" class="w-full md:w-80 bg-white text-gray-800 rounded-full pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold">
+                    </div>
+                    <button class="bg-gold hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-full transition flex items-center gap-2">
+                        Abone Ol <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3"><img src="logo3.png" alt="Zöhre Geziyor Logo" class="h-12 w-auto object-contain"></div>
+                    <p class="text-sm leading-relaxed text-gray-400">Her rotayı bir keşfe, her anı ise Seyir Defterinize yazılan unutulmaz bir hatıraya dönüştürüyoruz.</p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-gold"></i> Beşiktaş, İstanbul, Türkiye</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-gold"></i> +90 555 123 4567</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Kurumsal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="hakkimizda.html" class="hover:text-gold transition">Hakkımızda</a></li>
+                        <li><a href="rehberler.html" class="hover:text-gold transition">Rehberlerimiz</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition">Blog</a></li>
+                        <li><a href="kariyer.html" class="hover:text-gold transition">Kariyer</a></li>
+                        <li><a href="iletisim.html" class="hover:text-gold transition">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Destek</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gold transition">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Ödeme Seçenekleri</a></li>
+                        <li><a href="#" class="hover:text-gold transition">İptal ve İade</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Seyahat Sigortası</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Vize Hizmetleri</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/10 bg-black/10">
+            <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <div>© 2026 Candemir Yazılım. Tüm hakları saklıdır.</div>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="flex gap-6"><a href="gizlilik-politikasi.html" class="hover:text-white transition">Gizlilik Politikası</a><a href="kullanim-sartlari.html" class="hover:text-white transition">Kullanım Şartları</a></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

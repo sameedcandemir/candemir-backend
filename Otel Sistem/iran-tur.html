@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kadim İran Turu - Zöhre Geziyor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                        mono: ['"Source Code Pro"', 'monospace'],
+                    },
+                    colors: {
+                        gold: '#C5A059',
+                        teal: '#2C8583',
+                        offWhite: '#F9F9F7',
+                        footerBg: '#4A3426',
+                        footerLight: '#5D4232',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .date-option.selected { border-color: #2C8583; background-color: rgba(44, 133, 131, 0.05); }
+        .gallery-nav-btn { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(4px); transition: all 0.3s ease; }
+        .gallery-nav-btn:hover { background: white; transform: scale(1.1); }
+        .program-item:hover { border-color: #2C8583; box-shadow: 0 4px 12px rgba(44, 133, 131, 0.05); }
+        
+        /* Modal Styles */
+        #paymentModal { transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; opacity: 0; visibility: hidden; }
+        #paymentModal.show { opacity: 1; visibility: visible; }
+        .modal-content { transform: scale(0.95); transition: transform 0.3s ease-in-out; }
+        #paymentModal.show .modal-content { transform: scale(1); }
+
+        /* Interactive Card 3D Styles */
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .card-flipper.flipped { transform: rotateY(180deg); }
+        /* Kart Arka Planı İçin Şık Bir Gradyan ve Doku */
+        .card-skin {
+            background: linear-gradient(135deg, #1f4037, #2C8583, #99f2c8); 
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-[#FAFAFA]">
+
+    <nav class="bg-white border-b border-gray-100 px-8 py-5 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <img src="logo3.png" alt="Zöhre Geziyor Logo" class="h-10 w-auto object-contain">
+            </div>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-teal transition">Ana Sayfa</a>
+            <a href="turlarimiz.html" class="text-teal font-semibold flex items-center gap-1">Turlarımız <i class="fa-solid fa-chevron-down text-xs"></i></a>
+            <a href="hakkimizda.html" class="hover:text-teal transition">Hakkımızda</a>
+            <a href="rehberler.html" class="hover:text-teal transition">Rehberler</a>
+            <a href="iletisim.html" class="hover:text-teal transition">İletişim</a>
+        </div>
+        <div class="hidden md:flex items-center gap-6">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fa-solid fa-phone text-teal"></i>
+                <span>+90 555 123 4567</span>
+            </div>
+            <button class="bg-white border border-gray-200 text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-50 transition">
+                Bize Ulaşın
+            </button>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-8">
+        <div class="text-xs text-gray-400 mb-6 flex items-center gap-2">
+            <a href="#" class="hover:text-teal">Ana Sayfa</a> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            <a href="#" class="hover:text-teal">Turlar</a> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            <span class="text-gray-800 font-medium">Kadim İran Turu</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 relative">
+            <div class="lg:col-span-2">
+               <div class="space-y-8 mb-12">
+                    <div class="relative rounded-2xl overflow-hidden shadow-sm group">
+                        <img src="https://images.unsplash.com/photo-1565029606827-01053f47c320?q=80&w=1200&auto=format&fit=crop" class="w-full h-[500px] object-cover">
+                        <div class="absolute top-5 left-5 flex flex-wrap gap-2">
+                            <span class="bg-teal text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"><i class="fa-solid fa-plane-up mr-1"></i> Uçak Dahil</span>
+                            <span class="bg-white text-gray-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Kültür</span>
+                            <span class="bg-white text-gray-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Tarih</span>
+                            <span class="bg-white text-gray-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">UNESCO</span>
+                        </div>
+                        <div class="absolute top-5 right-5 flex gap-3">
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-red-500 hover:bg-red-50 transition shadow-md"><i class="fa-regular fa-heart"></i></button>
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-teal hover:bg-teal/10 transition shadow-md"><i class="fa-solid fa-share-nodes"></i></button>
+                        </div>
+                        <button class="gallery-nav-btn absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-gray-800 shadow-lg opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="gallery-nav-btn absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-gray-800 shadow-lg opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+
+                    <div class="flex gap-4 overflow-x-auto pb-2">
+                        <img src="https://images.unsplash.com/photo-1565029606827-01053f47c320?q=80&w=200&auto=format&fit=crop" class="w-24 h-24 rounded-lg object-cover border-2 border-teal cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1627137356228-564551745775?q=80&w=200&auto=format&fit=crop" class="w-24 h-24 rounded-lg object-cover border border-transparent opacity-70 hover:opacity-100 cursor-pointer transition">
+                        <img src="https://images.unsplash.com/photo-1605151608985-7153a84e9c70?q=80&w=200&auto=format&fit=crop" class="w-24 h-24 rounded-lg object-cover border border-transparent opacity-70 hover:opacity-100 cursor-pointer transition">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=200&auto=format&fit=crop" class="w-24 h-24 rounded-lg object-cover border border-transparent opacity-70 hover:opacity-100 cursor-pointer transition">
+                    </div>
+
+                    <div>
+                        <h1 class="font-serif text-4xl lg:text-5xl font-bold text-gray-900 mb-3">Kadim İran Turu</h1>
+                        <p class="text-gray-500 text-lg mb-6">Tahran – Kaşan – İsfahan – Yezd – Şiraz – Persepolis</p>
+                        <div class="flex flex-wrap gap-6 text-sm text-gray-600 mb-8 border-b border-gray-100 pb-8">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-star text-yellow-400"></i><span class="font-bold text-gray-900">4.9</span><span class="text-gray-400">(156 değerlendirme)</span></div>
+                            <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-teal"></i> 10 Gün / 9 Gece</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-user-group text-teal"></i> 12-20 kişi</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-teal"></i> İstanbul Çıkışlı</div>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-5 flex items-center gap-5 border border-gray-100">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ahmet Yılmaz" class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm">
+                            <div>
+                                <div class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-1">Tur Rehberi</div>
+                                <h3 class="font-serif text-xl font-bold text-gray-900">Ahmet Yılmaz</h3>
+                                <p class="text-teal text-sm">Kültür & Tarih Uzmanı</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-gray-100 p-1.5 rounded-xl inline-flex flex-wrap gap-2 mb-8 w-full md:w-auto">
+                        <button class="bg-white text-teal font-bold px-6 py-2 rounded-lg shadow-sm text-sm">Tur Programı</button>
+                        <button class="text-gray-500 hover:text-gray-700 font-medium px-6 py-2 rounded-lg text-sm transition hover:bg-white/50">Dahil / Hariç</button>
+                        <button class="text-gray-500 hover:text-gray-700 font-medium px-6 py-2 rounded-lg text-sm transition hover:bg-white/50">Uçuş Bilgisi</button>
+                        <button class="text-gray-500 hover:text-gray-700 font-medium px-6 py-2 rounded-lg text-sm transition hover:bg-white/50">Konaklama</button>
+                    </div>
+
+                    <div class="space-y-6 text-gray-600 leading-relaxed mb-12">
+                        <p>
+                            Kadim Pers uygarlığının izlerini, renklerini ve ritmini takip ettiğimiz bu yolculukta; tarih, mimari ve kültürün iç içe geçtiği büyülü bir keşif rotasında ilerliyoruz.
+                        </p>
+                        <p>
+                            Bin yıllık çarşılarda dolaşıyor, kubbeleri maviyle bezeli camilerin sessizliğine karışıyor, taş avluların serinliğinde geçmişin ihtişamıyla buluşuyoruz. Şiirin ve sanatın yüzyıllardır yaşadığı bu topraklarda attığımız her adım, bizi hem tarihe hem de bugünün canlı yaşamına daha da yaklaştırıyor.
+                        </p>
+                        <p>
+                            İran'ın içten misafirperverliği, zarif estetik anlayışı ve derin kültürel dokusu, bizi sadece bir seyahate değil, bir zaman yolculuğuna çıkarıyor. Persepolis'in ihtişamı, İsfahan'ın zarif köprüleri, Şiraz'ın şiir dolu atmosferi ve Yezd'in gizemli Zerdüşt mirası sizi bekliyor.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        
+                        <div class="program-item bg-white border border-gray-100 rounded-xl p-5 flex justify-between items-center cursor-pointer transition group">
+                            <div class="flex items-center gap-5">
+                                <div class="w-10 h-10 rounded-full bg-teal/10 text-teal flex items-center justify-center font-bold">1</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">İstanbul – Tahran</h4>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Akşam Yemeği</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray-300 group-hover:text-teal transition"></i>
+                        </div>
+
+                        <div class="program-item bg-white border border-gray-100 rounded-xl p-5 flex justify-between items-center cursor-pointer transition group">
+                            <div class="flex items-center gap-5">
+                                <div class="w-10 h-10 rounded-full bg-teal/10 text-teal flex items-center justify-center font-bold">2</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Tahran – Kaşan</h4>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Kahvaltı</span>
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Akşam Yemeği</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray-300 group-hover:text-teal transition"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 lg:p-8 sticky top-28">
+                    
+                    <div class="text-center mb-8">
+                        <div class="text-gray-400 text-sm line-through decoration-red-400 mb-1">1499€</div>
+                        <div class="flex items-center justify-center gap-2">
+                            <span class="font-serif text-4xl font-bold text-teal">1299</span>
+                            <div class="text-left leading-tight">
+                                <div class="font-bold text-teal text-sm">EUR / kişi</div>
+                                <div class="text-[10px] text-gray-400">İki kişilik odada kişi başı</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="block text-sm font-bold text-gray-900 mb-3">Tur Tarihi Seçin</label>
+                        <div class="space-y-3">
+                            <label class="date-option selected flex items-center justify-between p-3 rounded-xl border-2 cursor-pointer transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="date" checked class="w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                    <span class="text-sm font-medium text-gray-700">12 Nisan 2026 - 21 Nisan 2026</span>
+                                </div>
+                                <span class="text-sm font-bold text-teal">1299€</span>
+                            </label>
+                            
+                            <label class="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-teal/50 cursor-pointer transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="date" class="w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                    <span class="text-sm font-medium text-gray-600">10 Mayıs 2026 - 19 Mayıs 2026</span>
+                                </div>
+                                <span class="text-sm font-bold text-teal">1299€</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-teal/50 cursor-pointer transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="date" class="w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                    <span class="text-sm font-medium text-gray-600">14 Haziran 2026 - 23 Haziran 2026</span>
+                                </div>
+                                <span class="text-sm font-bold text-teal">1199€</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-teal/50 cursor-pointer transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="date" class="w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                    <span class="text-sm font-medium text-gray-600">20 Eylül 2026 - 29 Eylül 2026</span>
+                                </div>
+                                <span class="text-sm font-bold text-teal">1299€</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 mt-8">
+                        <button id="openModalBtn" class="w-full bg-teal hover:bg-teal-700 text-white font-bold py-4 rounded-xl transition shadow-lg hover:shadow-xl">
+                            Rezervasyon Yap
+                        </button>
+                        <button class="w-full bg-white border border-gray-200 hover:border-teal hover:text-teal text-gray-700 font-bold py-4 rounded-xl transition">
+                            Bilgi Al
+                        </button>
+                    </div>
+
+                    <div class="mt-8 space-y-2 text-xs text-gray-500 font-medium border-t border-gray-100 pt-6">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-teal"></i> Güvenli Ödeme
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-check text-teal"></i> Uzman Rehberlik
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-bus text-teal"></i> Özel Ulaşım
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-footerBg text-gray-300 mt-20">
+        <div class="border-b border-white/10">
+            <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="font-serif text-2xl font-bold text-white mb-2">En Güncel Turlardan Haberdar Olun</h3>
+                    <p class="text-sm text-gray-400">Özel fırsatlar, yeni rotalar ve seyahat ipuçları için bültenimize abone olun.</p>
+                </div>
+                <div class="flex w-full md:w-auto gap-2">
+                    <div class="relative flex-grow md:flex-grow-0">
+                        <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                        <input type="email" placeholder="E-posta adresiniz" class="w-full md:w-80 bg-white text-gray-800 rounded-full pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold">
+                    </div>
+                    <button class="bg-gold hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-full transition flex items-center gap-2">
+                        Abone Ol <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal rounded-full flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-plane-up"></i>
+                        </div>
+                        <span class="font-serif text-2xl font-bold text-white">Zöhre Geziyor</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-gray-400">
+                        Her rotayı bir keşfe, her anı ise Seyir Defterinize yazılan unutulmaz bir hatıraya dönüştürüyoruz. Bizim için insan değerlidir, seyahat bir sanattır.
+                    </p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-gold"></i> Beşiktaş, İstanbul, Türkiye</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-gold"></i> +90 555 123 4567</div>
+                        <div class="flex items-center gap-3"><i class="fa-regular fa-envelope text-gold"></i> info@zohregeziyor.com</div>
+                        <div class="flex items-center gap-3"><i class="fa-regular fa-clock text-gold"></i> Pzt - Cmt: 09:00 - 19:00</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Turlarımız</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gold transition">Yurtdışı Turları</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Yurtiçi Turları</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Kültür Turları</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Doğa Turları</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Tüm Turlar</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Kurumsal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gold transition">Hakkımızda</a></li>
+                        <li><a href="rehberler.html" class="hover:text-gold transition">Rehberlerimiz</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition">Blog</a></li>
+                        <li><a href="kariyer.html" class="hover:text-gold transition">Kariyer</a></li>
+                        <li><a href="iletisim.html" class="hover:text-gold transition">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Destek</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gold transition">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Ödeme Seçenekleri</a></li>
+                        <li><a href="#" class="hover:text-gold transition">İptal ve İade</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Seyahat Sigortası</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Vize Hizmetleri</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-white/10 bg-black/10">
+            <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <div>© 2026 Candemir Yazılım. Tüm hakları saklıdır.</div>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="flex gap-6">
+                    <a href="gizlilik-politikasi.html" class="hover:text-white transition">Gizlilik Politikası</a>
+                    <a href="kullanim-sartlari.html" class="hover:text-white transition">Kullanım Şartları</a>
+                </div>1
+            </div>
+        </div>
+    </footer>
+
+    <div id="paymentModal" class="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center ps-4 pe-4" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-800 bg-opacity-80 transition-opacity backdrop-blur-sm" aria-hidden="true"></div>
+
+        <div class="modal-content bg-white rounded-3xl shadow-2xl transform transition-all sm:max-w-2xl sm:w-full m-4 relative overflow-hidden">
+            
+            <button id="closeModalBtn" class="absolute top-4 right-4 z-20 text-gray-400 hover:text-gray-700 transition-colors p-2 bg-white/80 backdrop-blur-md rounded-full">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <div class="p-8 sm:p-10">
+                <h3 class="text-2xl font-serif font-bold leading-6 text-gray-900 mb-8 text-center">
+                    Ödeme Bilgileri
+                </h3>
+
+                <div class="perspective-1000 relative h-56 mb-8 max-w-md mx-auto">
+                    <div id="cardFlipper" class="w-full h-full transition-transform duration-700 transform-style-3d relative card-flipper">
+                        <div class="absolute top-0 left-0 w-full h-full card-skin rounded-2xl shadow-2xl overflow-hidden backface-hidden p-6 text-white flex flex-col justify-between z-10">
+                            <div class="flex justify-between items-start">
+                                <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png" alt="chip" class="w-12 opacity-90">
+                                <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" alt="brand" class="w-16" id="cardBrandLogo">
+                            </div>
+                            <div class="font-mono text-2xl tracking-wider font-medium" id="cardNumberDisplay">#### #### #### ####</div>
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <div class="text-[10px] uppercase opacity-70 tracking-wider mb-1">Kart Sahibi</div>
+                                    <div class="font-medium tracking-wide uppercase truncate" id="cardHolderDisplay">AD SOYAD</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] uppercase opacity-70 tracking-wider mb-1">S.K.T</div>
+                                    <div class="font-medium tracking-wider"><span id="expMonthDisplay">AA</span>/<span id="expYearDisplay">YY</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 left-0 w-full h-full card-skin rounded-2xl shadow-2xl overflow-hidden backface-hidden rotate-y-180 p-0 text-white z-0">
+                            <div class="w-full h-12 bg-black/80 mt-6"></div>
+                            <div class="p-6">
+                                <div class="text-[10px] uppercase opacity-70 tracking-wider mb-1 text-right pr-2">CVC</div>
+                                <div class="bg-white text-gray-800 font-mono text-lg font-bold p-2 rounded-md text-right pr-3" id="cvcDisplay">***</div>
+                                <div class="mt-4 text-right">
+                                    <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" alt="brand" class="w-16 inline-block opacity-80">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="space-y-5">
+                    <div>
+                        <label for="card-number" class="block text-sm font-medium text-gray-700 mb-2">Kart Numarası</label>
+                        <input type="text" id="cardNumberInput" maxlength="19" class="block w-full rounded-xl border-gray-200 bg-gray-50 focus:bg-white shadow-sm focus:ring-2 focus:ring-teal focus:border-transparent sm:text-sm p-4 border transition-all font-mono" placeholder="xxxx xxxx xxxx xxxx">
+                    </div>
+
+                    <div>
+                        <label for="card-holder" class="block text-sm font-medium text-gray-700 mb-2">Kart Sahibi</label>
+                        <input type="text" id="cardHolderInput" maxlength="25" class="block w-full rounded-xl border-gray-200 bg-gray-50 focus:bg-white shadow-sm focus:ring-2 focus:ring-teal focus:border-transparent sm:text-sm p-4 border transition-all" placeholder="Kart üzerindeki isim">
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-1/2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Son Kullanma Tarihi</label>
+                            <div class="flex gap-2">
+                                <input type="text" id="expMonthInput" maxlength="2" placeholder="AA" class="block w-1/2 rounded-xl border-gray-200 bg-gray-50 focus:bg-white shadow-sm focus:ring-2 focus:ring-teal focus:border-transparent sm:text-sm p-4 border transition-all text-center font-mono">
+                                <input type="text" id="expYearInput" maxlength="2" placeholder="YY" class="block w-1/2 rounded-xl border-gray-200 bg-gray-50 focus:bg-white shadow-sm focus:ring-2 focus:ring-teal focus:border-transparent sm:text-sm p-4 border transition-all text-center font-mono">
+                            </div>
+                        </div>
+                        <div class="w-1/2">
+                            <label for="card-cvc" class="block text-sm font-medium text-gray-700 mb-2">CVC / CVV</label>
+                            <input type="text" id="cvcInput" maxlength="3" class="block w-full rounded-xl border-gray-200 bg-gray-50 focus:bg-white shadow-sm focus:ring-2 focus:ring-teal focus:border-transparent sm:text-sm p-4 border transition-all text-center font-mono" placeholder="***">
+                        </div>
+                    </div>
+
+                    <button type="button" class="w-full bg-teal hover:bg-teal-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group text-lg mt-8">
+                        <span>1.299€ Öde</span>
+                        <i class="fa-solid fa-lock text-sm opacity-70 group-hover:scale-110 transition-transform"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functionality
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const paymentModal = document.getElementById('paymentModal');
+
+        function openModal() { paymentModal.classList.add('show'); document.body.style.overflow = 'hidden'; }
+        function closeModal() { paymentModal.classList.remove('show'); document.body.style.overflow = ''; }
+
+        openModalBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        paymentModal.addEventListener('click', (e) => { if (e.target === paymentModal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && paymentModal.classList.contains('show')) closeModal(); });
+
+        // --- İNTERAKTİF KART MANTIĞI ---
+        const cardFlipper = document.getElementById('cardFlipper');
+        const cardNumberInput = document.getElementById('cardNumberInput');
+        const cardHolderInput = document.getElementById('cardHolderInput');
+        const expMonthInput = document.getElementById('expMonthInput');
+        const expYearInput = document.getElementById('expYearInput');
+        const cvcInput = document.getElementById('cvcInput');
+
+        const cardNumberDisplay = document.getElementById('cardNumberDisplay');
+        const cardHolderDisplay = document.getElementById('cardHolderDisplay');
+        const expMonthDisplay = document.getElementById('expMonthDisplay');
+        const expYearDisplay = document.getElementById('expYearDisplay');
+        const cvcDisplay = document.getElementById('cvcDisplay');
+
+        // Kart Numarası Formatlama ve Güncelleme
+        cardNumberInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            e.target.value = value.replace(/(.{4})/g, '$1 ').trim();
+            cardNumberDisplay.innerText = e.target.value || '#### #### #### ####';
+        });
+
+        // Kart Sahibi İsmi Güncelleme
+        cardHolderInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^a-zA-ZğüşöçıİĞÜŞÖÇ\s]/g, '').toUpperCase();
+            cardHolderDisplay.innerText = e.target.value || 'AD SOYAD';
+        });
+
+        // Son Kullanma Tarihi Güncelleme
+        expMonthInput.addEventListener('input', (e) => {
+             let value = e.target.value.replace(/\D/g, '');
+             if(value > 12) value = '12';
+             e.target.value = value;
+            expMonthDisplay.innerText = value.padStart(2, '0') || 'AA';
+        });
+        expYearInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            e.target.value = value;
+            expYearDisplay.innerText = value.padStart(2, '0') || 'YY';
+        });
+
+        // CVC Güncelleme ve Kart Döndürme
+        cvcInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            e.target.value = value;
+            cvcDisplay.innerText = value || '***';
+        });
+        cvcInput.addEventListener('focus', () => { cardFlipper.classList.add('flipped'); });
+        cvcInput.addEventListener('blur', () => { cardFlipper.classList.remove('flipped'); });
+    </script>
+</body>
+</html>

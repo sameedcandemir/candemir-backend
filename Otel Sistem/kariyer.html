@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kariyer - Zöhre Geziyor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: '#C5A059',
+                        teal: '#2C8583',
+                        darkOverlay: 'rgba(30, 20, 10, 0.65)',
+                        offWhite: '#F9F9F7', 
+                        lightGreen: '#F0F5F5',
+                        footerBg: '#4A3426',
+                        footerLight: '#5D4232',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .benefit-card, .job-card {
+            transition: all 0.3s ease;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(44, 133, 131, 0.1);
+        }
+        .job-card:hover {
+            border-color: #2C8583;
+            background-color: #F0F5F5;
+        }
+        #main-nav {
+            transition: all 0.4s ease-in-out;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .active-nav {
+            background: rgba(197, 160, 89, 0.2);
+            color: #C5A059;
+            border-radius: 20px;
+            padding: 6px 16px;
+        }
+        .scrolled .active-nav {
+            background: rgba(44, 133, 131, 0.1); 
+            color: #2C8583; 
+        }
+        /* Custom file upload button style */
+        input[type="file"]::file-selector-button {
+            margin-right: 20px;
+            border: none;
+            background: #2C8583;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: background .2s ease-in-out;
+        }
+        input[type="file"]::file-selector-button:hover {
+            background: #1f6361;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-offWhite">
+
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 px-8 py-6 flex items-center justify-between border-b border-white/10 text-white">
+        <div class="flex items-center gap-3">
+            <img src="logo3.png" alt="Zöhre Geziyor Logo" class="h-12 w-auto object-contain">
+        </div>
+
+        <div id="nav-links" class="hidden md:flex items-center gap-6 text-sm font-medium transition-colors duration-300">
+            <a href="index.html" class="nav-link hover:text-amber-200">Ana Sayfa</a>
+            <a href="turlarimiz.html" class="nav-link hover:text-amber-200">Turlarımız</a>
+            <a href="hakkimizda.html" class="nav-link hover:text-amber-200">Hakkımızda</a>
+            <a href="rehberler.html" class="nav-link hover:text-amber-200">Rehberler</a>
+            <a href="blog.html" class="nav-link hover:text-amber-200">Blog</a>
+            <a href="iletisim.html" class="nav-link hover:text-amber-200">İletişim</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-6">
+            <div id="nav-phone" class="flex items-center gap-2 text-sm transition-colors duration-300">
+                <i class="fa-solid fa-phone text-amber-200"></i>
+                <span>+90 555 123 4567</span>
+            </div>
+            <button class="bg-white text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all duration-300 shadow-md">
+                Bize Ulaşın
+            </button>
+        </div>
+    </nav>
+
+    <div class="relative w-full h-[50vh] flex flex-col justify-center items-center text-white overflow-hidden"> 
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-darkOverlay z-10"></div>
+
+        <div class="relative z-20 text-center px-6 mt-10">
+            <div class="inline-block bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full mb-4">
+                <span class="text-amber-300 text-xs font-medium uppercase tracking-wider">Kariyer Fırsatları</span>
+            </div>
+            <h1 class="font-serif text-5xl lg:text-6xl font-bold mb-4">Rotamız <span class="text-gold">Gelecek</span></h1>
+            <p class="text-gray-200 text-lg max-w-xl mx-auto">
+                Tutkulu, yenilikçi ve dünyayı keşfetmeye meraklı bir ekibin parçası olun. Bizimle birlikte hikayenizi yazın.
+            </p>
+        </div>
+    </div>
+
+    <section class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Neden <span class="text-teal">Zöhre Geziyor?</span></h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Sadece bir iş değil, bir yaşam tarzı sunuyoruz. İşte ekibimizin bir parçası olmanın ayrıcalıkları.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="benefit-card bg-offWhite p-8 rounded-[2rem] text-center border border-gray-100">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-teal text-2xl">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Seyahat İmkanları</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Dünyanın en büyüleyici rotalarını keşfetme ve yerinde deneyimleme fırsatı. İşimiz gezmek, gücümüz keşfetmek.</p>
+                </div>
+
+                <div class="benefit-card bg-offWhite p-8 rounded-[2rem] text-center border border-gray-100">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-gold text-2xl">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Sürekli Gelişim</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Dil eğitimleri, tarih seminerleri ve profesyonel gelişim atölyeleri ile kariyer basamaklarını hızla tırmanın.</p>
+                </div>
+
+                <div class="benefit-card bg-offWhite p-8 rounded-[2rem] text-center border border-gray-100">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md text-teal text-2xl">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Sıcak Bir Aile Ortamı</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Hiyerarşiden uzak, fikirlerin özgürce paylaşıldığı, samimi ve destekleyici bir çalışma kültürü.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-offWhite">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+                <div>
+                    <h2 class="font-serif text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Açık <span class="text-teal">Pozisyonlar</span></h2>
+                    <p class="text-gray-500">Yeteneklerinize uygun bir rol mutlaka var.</p>
+                </div>
+                <div class="flex gap-2">
+                    <button class="bg-teal text-white px-4 py-2 rounded-full text-xs font-bold">Tümü</button>
+                    <button class="bg-white text-gray-600 border border-gray-200 px-4 py-2 rounded-full text-xs font-bold hover:bg-teal hover:text-white transition">Operasyon</button>
+                    <button class="bg-white text-gray-600 border border-gray-200 px-4 py-2 rounded-full text-xs font-bold hover:bg-teal hover:text-white transition">Rehberlik</button>
+                    <button class="bg-white text-gray-600 border border-gray-200 px-4 py-2 rounded-full text-xs font-bold hover:bg-teal hover:text-white transition">Pazarlama</button>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="job-card bg-white p-6 rounded-2xl border border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6 cursor-pointer">
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center text-teal text-xl font-bold">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-900">Profesyonel Tur Rehberi (Farsça)</h3>
+                            <div class="flex gap-4 text-xs text-gray-500 mt-1">
+                                <span><i class="fa-solid fa-location-dot mr-1"></i> İstanbul / Seyahat</span>
+                                <span><i class="fa-regular fa-clock mr-1"></i> Tam Zamanlı</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="bg-offWhite text-teal font-bold px-6 py-2 rounded-full hover:bg-teal hover:text-white transition text-sm w-full md:w-auto">Başvur</button>
+                </div>
+
+                <div class="job-card bg-white p-6 rounded-2xl border border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6 cursor-pointer">
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-xl font-bold">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-900">Dijital Pazarlama Uzmanı</h3>
+                            <div class="flex gap-4 text-xs text-gray-500 mt-1">
+                                <span><i class="fa-solid fa-location-dot mr-1"></i> Beşiktaş, İstanbul</span>
+                                <span><i class="fa-regular fa-clock mr-1"></i> Tam Zamanlı</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="bg-offWhite text-teal font-bold px-6 py-2 rounded-full hover:bg-teal hover:text-white transition text-sm w-full md:w-auto">Başvur</button>
+                </div>
+
+                <div class="job-card bg-white p-6 rounded-2xl border border-gray-200 flex flex-col md:flex-row justify-between items-center gap-6 cursor-pointer">
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 text-xl font-bold">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-900">Seyahat Satış Temsilcisi</h3>
+                            <div class="flex gap-4 text-xs text-gray-500 mt-1">
+                                <span><i class="fa-solid fa-location-dot mr-1"></i> Beşiktaş, İstanbul</span>
+                                <span><i class="fa-regular fa-clock mr-1"></i> Tam Zamanlı</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="bg-offWhite text-teal font-bold px-6 py-2 rounded-full hover:bg-teal hover:text-white transition text-sm w-full md:w-auto">Başvur</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-lightGreen rounded-[3rem] p-8 md:p-16 relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-teal/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-64 h-64 bg-gold/10 rounded-full blur-3xl"></div>
+
+                <div class="relative z-10">
+                    <div class="text-center mb-10">
+                        <h2 class="font-serif text-3xl font-bold text-gray-900 mb-2">Genel Başvuru</h2>
+                        <p class="text-gray-500">Aradığınız pozisyonu bulamadınız mı? CV'nizi bırakın, uygun bir rol açıldığında sizi arayalım.</p>
+                    </div>
+
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-gray-700 ml-1">Ad Soyad</label>
+                                <input type="text" placeholder="Adınız Soyadınız" class="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal transition">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-gray-700 ml-1">E-Posta</label>
+                                <input type="email" placeholder="ornek@email.com" class="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal transition">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-gray-700 ml-1">Telefon</label>
+                                <input type="text" placeholder="+90 5XX XXX XX XX" class="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal transition">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-gray-700 ml-1">Departman</label>
+                                <select class="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal transition text-gray-500">
+                                    <option>Seçiniz</option>
+                                    <option>Operasyon</option>
+                                    <option>Rehberlik</option>
+                                    <option>Satış & Pazarlama</option>
+                                    <option>Finans & Muhasebe</option>
+                                    <option>Stajyer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-gray-700 ml-1">Ön Yazı</label>
+                            <textarea rows="4" placeholder="Kendinizden ve neden bizimle çalışmak istediğinizden kısaca bahsedin..." class="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal transition"></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-gray-700 ml-1">CV Yükle (PDF)</label>
+                            <div class="w-full bg-white border border-gray-200 border-dashed rounded-xl px-5 py-8 text-center hover:bg-gray-50 transition cursor-pointer relative">
+                                <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                                <div class="text-gray-400">
+                                    <i class="fa-solid fa-cloud-arrow-up text-3xl mb-2 text-teal"></i>
+                                    <p class="text-sm">Dosyayı sürükleyin veya <span class="text-teal font-bold underline">tıklayın</span></p>
+                                    <p class="text-xs mt-1">Maks. 5MB (PDF, DOCX)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <button class="w-full bg-teal hover:bg-teal-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                                Başvuruyu Gönder <i class="fa-regular fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-footerBg text-gray-300">
+        <div class="border-b border-white/10">
+            <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="font-serif text-2xl font-bold text-white mb-2">En Güncel Turlardan Haberdar Olun</h3>
+                    <p class="text-sm text-gray-400">Özel fırsatlar, yeni rotalar ve seyahat ipuçları için bültenimize abone olun.</p>
+                </div>
+                <div class="flex w-full md:w-auto gap-2">
+                    <div class="relative flex-grow md:flex-grow-0">
+                        <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                        <input type="email" placeholder="E-posta adresiniz" class="w-full md:w-80 bg-white text-gray-800 rounded-full pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold">
+                    </div>
+                    <button class="bg-gold hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-full transition flex items-center gap-2">
+                        Abone Ol <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-teal rounded-full flex items-center justify-center text-white text-xl"><i class="fa-solid fa-plane-up"></i></div><span class="font-serif text-2xl font-bold text-white">Zöhre Geziyor</span></div>
+                    <p class="text-sm leading-relaxed text-gray-400">Her rotayı bir keşfe, her anı ise Seyir Defterinize yazılan unutulmaz bir hatıraya dönüştürüyoruz. Bizim için insan değerlidir, seyahat bir sanattır.</p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-gold"></i> Beşiktaş, İstanbul, Türkiye</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-gold"></i> +90 555 123 4567</div>
+                        <div class="flex items-center gap-3"><i class="fa-regular fa-envelope text-gold"></i> info@zohregeziyor.com</div>
+                        <div class="flex items-center gap-3"><i class="fa-regular fa-clock text-gold"></i> Pzt - Cmt: 09:00 - 19:00</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Kurumsal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="hakkimizda.html" class="hover:text-gold transition">Hakkımızda</a></li>
+                        <li><a href="rehberler.html" class="hover:text-gold transition">Rehberlerimiz</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition">Blog</a></li>
+                        <li><a href="kariyer.html" class="hover:text-gold transition text-gold">Kariyer</a></li>
+                        <li><a href="iletisim.html" class="hover:text-gold transition">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Destek</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gold transition">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Ödeme Seçenekleri</a></li>
+                        <li><a href="#" class="hover:text-gold transition">İptal ve İade</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Seyahat Sigortası</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Vize Hizmetleri</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/10 bg-black/10">
+            <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <div>© 2026 Candemir Yazılım. Tüm hakları saklıdır.</div>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="flex gap-6"><a href="gizlilik-politikasi.html" class="hover:text-white transition">Gizlilik Politikası</a><a href="kullanim-sartlari.html" class="hover:text-white transition">Kullanım Şartları</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        const nav = document.getElementById('main-nav');
+        const navLinksItems = document.querySelectorAll('.nav-link'); 
+        const navPhoneIcon = document.querySelector('#nav-phone i');
+        const navBtn = document.querySelector('nav button');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white', 'shadow-lg', 'py-4', 'scrolled');
+                nav.classList.remove('py-6', 'border-b', 'border-white/10', 'text-white');
+                nav.classList.add('text-gray-800');
+                
+                navLinksItems.forEach(link => { link.classList.remove('hover:text-amber-200'); link.classList.add('hover:text-teal'); });
+                navPhoneIcon.classList.remove('text-amber-200'); navPhoneIcon.classList.add('text-teal');
+                navBtn.classList.remove('bg-white', 'text-gray-900'); navBtn.classList.add('bg-teal', 'text-white', 'hover:bg-teal-700');
+            } else {
+                nav.classList.remove('bg-white', 'shadow-lg', 'py-4', 'scrolled', 'text-gray-800');
+                nav.classList.add('py-6', 'border-b', 'border-white/10', 'text-white');
+                
+                navLinksItems.forEach(link => { link.classList.add('hover:text-amber-200'); link.classList.remove('hover:text-teal'); });
+                navPhoneIcon.classList.add('text-amber-200'); navPhoneIcon.classList.remove('text-teal');
+                navBtn.classList.add('bg-white', 'text-gray-900'); navBtn.classList.remove('bg-teal', 'text-white', 'hover:bg-teal-700');
+            }
+        });
+    </script>
+</body>
+</html>

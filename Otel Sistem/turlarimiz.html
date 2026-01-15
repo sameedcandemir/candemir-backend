@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turlarımız - Zöhre Geziyor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: '#C5A059',
+                        teal: '#2C8583',
+                        darkOverlay: 'rgba(30, 20, 10, 0.65)',
+                        offWhite: '#F9F9F7', 
+                        footerBg: '#4A3426',
+                        footerLight: '#5D4232',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Hero Arka Plan */
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .tour-card {
+            transition: all 0.3s ease;
+        }
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+        }
+
+        .filter-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-[#FAFAFA]">
+
+    <nav class="bg-white border-b border-gray-100 px-8 py-5 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <img src="logo3.png" alt="Zöhre Geziyor Logo" class="h-12 w-auto object-contain">
+        </div>
+
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-teal transition">Ana Sayfa</a>
+            <a href="turlarimiz.html" class="text-teal font-semibold">Turlarımız</a>
+            <a href="hakkimizda.html" class="hover:text-teal transition">Hakkımızda</a>
+            <a href="rehberler.html" class="hover:text-teal transition">Rehberler</a>
+            <a href="iletisim.html" class="hover:text-teal transition">İletişim</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-6">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fa-solid fa-phone text-teal"></i>
+                <span>+90 555 123 4567</span>
+            </div>
+            <button class="bg-white border border-gray-200 text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-50 transition">
+                Bize Ulaşın
+            </button>
+        </div>
+    </nav>
+
+    <div class="relative w-full h-[50vh] hero-bg flex items-center justify-center text-white text-center px-6">
+        <div class="absolute inset-0 bg-darkOverlay z-0"></div>
+        <div class="relative z-10 max-w-3xl">
+            <div class="inline-block bg-white/10 backdrop-blur-md border border-white/20 px-5 py-2 rounded-full mb-6">
+                <span class="text-gold font-bold text-sm tracking-wide uppercase">Keşfetmeye Hazır Mısın?</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Hayalinizdeki <br> <span class="text-teal">Rotayı Bulun</span>
+            </h1>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-20 -mt-10">
+        <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 flex flex-col md:flex-row gap-4 items-center">
+            
+            <div class="w-full md:w-1/4">
+                <label class="block text-xs font-bold text-gray-400 mb-1 ml-1 uppercase">Destinasyon</label>
+                <div class="relative">
+                    <i class="fa-solid fa-location-dot absolute left-4 top-1/2 -translate-y-1/2 text-teal"></i>
+                    <select id="dest-select" class="filter-select w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-10 pr-8 text-gray-700 outline-none focus:border-teal transition cursor-pointer">
+                        <option value="all">Tüm Destinasyonlar</option>
+                        <option value="iran">İran</option>
+                        <option value="dubai">Dubai</option>
+                        <option value="ozbekistan">Özbekistan</option>
+                        <option value="misir">Mısır</option>
+                        <option value="balkanlar">Balkanlar</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/4">
+                <label class="block text-xs font-bold text-gray-400 mb-1 ml-1 uppercase">Tarih</label>
+                <div class="relative">
+                    <i class="fa-regular fa-calendar absolute left-4 top-1/2 -translate-y-1/2 text-teal"></i>
+                    <select id="date-select" class="filter-select w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-10 pr-8 text-gray-700 outline-none focus:border-teal transition cursor-pointer">
+                        <option value="all">Tüm Tarihler</option>
+                        <option value="ocak-2026">Ocak 2026</option>
+                        <option value="subat-2026">Şubat 2026</option>
+                        <option value="mart-2026">Mart 2026</option>
+                        <option value="nisan-2026">Nisan 2026</option>
+                        <option value="yaz-2026">Yaz 2026</option>
+                        <option value="sonbahar-2026">Sonbahar 2026</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/4">
+                <label class="block text-xs font-bold text-gray-400 mb-1 ml-1 uppercase">Fiyat Aralığı</label>
+                <div class="relative">
+                    <i class="fa-solid fa-tag absolute left-4 top-1/2 -translate-y-1/2 text-teal"></i>
+                    <select id="price-select" class="filter-select w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-10 pr-8 text-gray-700 outline-none focus:border-teal transition cursor-pointer">
+                        <option value="all">Tümü</option>
+                        <option value="0-500">0€ - 500€</option>
+                        <option value="500-1000">500€ - 1000€</option>
+                        <option value="1000-1500">1000€ - 1500€</option>
+                        <option value="1500-max">1500€ +</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/4 flex items-end">
+                <button id="filter-btn" class="w-full bg-teal hover:bg-teal-700 text-white font-bold py-3.5 rounded-xl transition shadow-lg hover:shadow-teal/30 mt-5">
+                    Turları Filtrele
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="py-20 px-6 container mx-auto">
+        
+        <div id="tour-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="tour-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 flex flex-col h-full cursor-pointer group" 
+                 data-destination="iran" 
+                 data-date="nisan-2026" 
+                 data-price="1299"
+                 onclick="window.location.href='iran-tur.html'">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1565029606827-01053f47c320?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 left-4 flex gap-2">
+                        <span class="bg-teal/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded">Uçak Dahil</span>
+                        <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded">%13 İndirim</span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-8 h-8 rounded-full border-2 border-white shadow-md">
+                        <span class="text-white text-xs font-medium bg-black/40 px-2 py-1 rounded-full backdrop-blur-sm">Ahmet Yılmaz</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex gap-2 mb-3">
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Kültür</span>
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Tarih</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-2 group-hover:text-teal transition">Kadim İran Turu</h3>
+                    <p class="text-xs text-gray-400 mb-4 line-clamp-2">Tahran – Kaşan – İsfahan – Yezd – Şiraz – Persepolis</p>
+                    
+                    <div class="space-y-2 mb-4 text-xs text-gray-500">
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock"></i> 10 Gün / 9 Gece</div>
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i> 12-21 Nisan 2026</div>
+                    </div>
+
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 line-through">1499€</span>
+                            <div class="text-teal font-bold text-xl">1.299€</div>
+                        </div>
+                        <button class="bg-teal/10 hover:bg-teal text-teal hover:text-white px-5 py-2 rounded-lg text-sm font-bold transition">İncele</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 flex flex-col h-full cursor-pointer group" 
+                 data-destination="iran" 
+                 data-date="nisan-2026" 
+                 data-price="899"
+                 onclick="window.location.href='tebriz-tur.html'">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1605151608985-7153a84e9c70?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 left-4 flex gap-2">
+                        <span class="bg-teal/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded">Uçak Dahil</span>
+                        <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded">%18 İndirim</span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-8 h-8 rounded-full border-2 border-white shadow-md">
+                        <span class="text-white text-xs font-medium bg-black/40 px-2 py-1 rounded-full backdrop-blur-sm">Mustafa Özkan</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex gap-2 mb-3">
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Kültür</span>
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Doğa</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-2 group-hover:text-teal transition">Tebriz & Kuzey İran</h3>
+                    <p class="text-xs text-gray-400 mb-4 line-clamp-2">Tebriz – Erdebil – Makü – Urmiye</p>
+                    
+                    <div class="space-y-2 mb-4 text-xs text-gray-500">
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock"></i> 6 Gün / 5 Gece</div>
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i> 5-10 Nisan 2026</div>
+                    </div>
+
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 line-through">1099€</span>
+                            <div class="text-teal font-bold text-xl">899€</div>
+                        </div>
+                        <button class="bg-teal/10 hover:bg-teal text-teal hover:text-white px-5 py-2 rounded-lg text-sm font-bold transition">İncele</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 flex flex-col h-full cursor-pointer group" 
+                 data-destination="dubai" 
+                 data-date="ocak-2026" 
+                 data-price="1199"
+                 onclick="window.location.href='dubai-tur.html'">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 left-4 flex gap-2">
+                        <span class="bg-teal/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded">Uçak Dahil</span>
+                        <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded">%14 İndirim</span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-8 h-8 rounded-full border-2 border-white shadow-md">
+                        <span class="text-white text-xs font-medium bg-black/40 px-2 py-1 rounded-full backdrop-blur-sm">Elif Kaya</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex gap-2 mb-3">
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Lüks</span>
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Modern</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-2 group-hover:text-teal transition">Dubai Gezisi</h3>
+                    <p class="text-xs text-gray-400 mb-4 line-clamp-2">Modern Mimarinin Başkenti, Çöl Safarisi ve Lüks Alışveriş.</p>
+                    
+                    <div class="space-y-2 mb-4 text-xs text-gray-500">
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock"></i> 5 Gün / 4 Gece</div>
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i> 15-19 Ocak 2026</div>
+                    </div>
+
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 line-through">1399€</span>
+                            <div class="text-teal font-bold text-xl">1.199€</div>
+                        </div>
+                        <button class="bg-teal/10 hover:bg-teal text-teal hover:text-white px-5 py-2 rounded-lg text-sm font-bold transition">İncele</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 flex flex-col h-full cursor-pointer group" 
+                 data-destination="ozbekistan" 
+                 data-date="nisan-2026" 
+                 data-price="1099"
+                 onclick="window.location.href='ozbekistan-tur.html'">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 left-4 flex gap-2">
+                        <span class="bg-teal/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded">Uçak Dahil</span>
+                        <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded">%15 İndirim</span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                        <img src="https://randomuser.me/api/portraits/men/86.jpg" class="w-8 h-8 rounded-full border-2 border-white shadow-md">
+                        <span class="text-white text-xs font-medium bg-black/40 px-2 py-1 rounded-full backdrop-blur-sm">Süleyman Topçu</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex gap-2 mb-3">
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Tarih</span>
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">İpek Yolu</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-2 group-hover:text-teal transition">Özbekistan İpek Yolu</h3>
+                    <p class="text-xs text-gray-400 mb-4 line-clamp-2">Taşkent – Semerkant – Buhara – Hive</p>
+                    
+                    <div class="space-y-2 mb-4 text-xs text-gray-500">
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock"></i> 8 Gün / 7 Gece</div>
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i> 4-11 Nisan 2026</div>
+                    </div>
+
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 line-through">1299€</span>
+                            <div class="text-teal font-bold text-xl">1.099€</div>
+                        </div>
+                        <button class="bg-teal/10 hover:bg-teal text-teal hover:text-white px-5 py-2 rounded-lg text-sm font-bold transition">İncele</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 flex flex-col h-full opacity-90 group relative" 
+                 data-destination="misir" 
+                 data-date="sonbahar-2026" 
+                 data-price="0">
+                <div class="absolute inset-0 bg-white/60 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <span class="bg-teal text-white font-bold px-6 py-3 rounded-full shadow-lg">Çok Yakında</span>
+                </div>
+
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1539650116455-8ef0763a2786?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover">
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded">Planlanıyor</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex gap-2 mb-3">
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Tarih</span>
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Macera</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Mısır & Piramitler</h3>
+                    <p class="text-xs text-gray-400 mb-4 line-clamp-2">Kahire – Luksor – Asvan – İskenderiye</p>
+                    
+                    <div class="space-y-2 mb-4 text-xs text-gray-500">
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock"></i> 7 Gün / 6 Gece</div>
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i> Sonbahar 2026</div>
+                    </div>
+
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400">Başlangıç</span>
+                            <div class="text-gray-400 font-bold text-xl">--- €</div>
+                        </div>
+                        <button class="bg-gray-100 text-gray-400 px-5 py-2 rounded-lg text-sm font-bold cursor-not-allowed">Yakında</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-card bg-white rounded-[2rem] overflow-hidden border border-gray-100 flex flex-col h-full opacity-90 group relative" 
+                 data-destination="balkanlar" 
+                 data-date="yaz-2026" 
+                 data-price="0">
+                <div class="absolute inset-0 bg-white/60 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <span class="bg-teal text-white font-bold px-6 py-3 rounded-full shadow-lg">Çok Yakında</span>
+                </div>
+
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1588665042469-8736d7083072?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover">
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded">Planlanıyor</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex gap-2 mb-3">
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Doğa</span>
+                        <span class="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded">Kültür</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Büyük Balkan Turu</h3>
+                    <p class="text-xs text-gray-400 mb-4 line-clamp-2">Saraybosna – Belgrad – Üsküp – Ohrid</p>
+                    
+                    <div class="space-y-2 mb-4 text-xs text-gray-500">
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-clock"></i> 8 Gün / 7 Gece</div>
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i> Yaz 2026</div>
+                    </div>
+
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400">Başlangıç</span>
+                            <div class="text-gray-400 font-bold text-xl">--- €</div>
+                        </div>
+                        <button class="bg-gray-100 text-gray-400 px-5 py-2 rounded-lg text-sm font-bold cursor-not-allowed">Yakında</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="no-results" class="hidden text-center py-20">
+            <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-search text-gray-400 text-3xl"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-gray-800 mb-2">Sonuç Bulunamadı</h3>
+            <p class="text-gray-500">Seçtiğiniz kriterlere uygun bir turumuz şu anda bulunmamaktadır.</p>
+            <button onclick="resetFilters()" class="mt-6 text-teal font-bold hover:underline">Filtreleri Temizle</button>
+        </div>
+
+    </section>
+
+    <footer class="bg-footerBg text-gray-300">
+        <div class="border-b border-white/10">
+            <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="font-serif text-2xl font-bold text-white mb-2">En Güncel Turlardan Haberdar Olun</h3>
+                    <p class="text-sm text-gray-400">Özel fırsatlar, yeni rotalar ve seyahat ipuçları için bültenimize abone olun.</p>
+                </div>
+                <div class="flex w-full md:w-auto gap-2">
+                    <div class="relative flex-grow md:flex-grow-0">
+                        <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                        <input type="email" placeholder="E-posta adresiniz" class="w-full md:w-80 bg-white text-gray-800 rounded-full pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold">
+                    </div>
+                    <button class="bg-gold hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-full transition flex items-center gap-2">
+                        Abone Ol <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-teal rounded-full flex items-center justify-center text-white text-xl"><i class="fa-solid fa-plane-up"></i></div><span class="font-serif text-2xl font-bold text-white">Zöhre Geziyor</span></div>
+                    <p class="text-sm leading-relaxed text-gray-400">Her rotayı bir keşfe, her anı ise Seyir Defterinize yazılan unutulmaz bir hatıraya dönüştürüyoruz. Bizim için insan değerlidir, seyahat bir sanattır.</p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-gold"></i> Beşiktaş, İstanbul, Türkiye</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-gold"></i> +90 555 123 4567</div>
+                        <div class="flex items-center gap-3"><i class="fa-regular fa-envelope text-gold"></i> info@zohregeziyor.com</div>
+                        <div class="flex items-center gap-3"><i class="fa-regular fa-clock text-gold"></i> Pzt - Cmt: 09:00 - 19:00</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Kurumsal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="hakkimizda.html" class="hover:text-gold transition">Hakkımızda</a></li>
+                        <li><a href="rehberler.html" class="hover:text-gold transition">Rehberlerimiz</a></li>
+                        <li><a href="iletisim.html" class="hover:text-gold transition">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Destek</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gold transition">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Vize Hizmetleri</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/10 bg-black/10">
+            <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <div>© 2026 Candemir Yazılım. Tüm hakları saklıdır.</div>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('filter-btn').addEventListener('click', function() {
+            const destValue = document.getElementById('dest-select').value;
+            const dateValue = document.getElementById('date-select').value;
+            const priceValue = document.getElementById('price-select').value;
+            
+            const tours = document.querySelectorAll('.tour-card');
+            let visibleCount = 0;
+
+            tours.forEach(tour => {
+                const tourDest = tour.getAttribute('data-destination');
+                const tourDate = tour.getAttribute('data-date');
+                const tourPrice = parseInt(tour.getAttribute('data-price'));
+
+                let isDestMatch = (destValue === 'all' || tourDest === destValue);
+                let isDateMatch = (dateValue === 'all' || tourDate === dateValue);
+                let isPriceMatch = false;
+
+                if (priceValue === 'all') {
+                    isPriceMatch = true;
+                } else if (priceValue === '0-500') {
+                    isPriceMatch = (tourPrice >= 0 && tourPrice <= 500);
+                } else if (priceValue === '500-1000') {
+                    isPriceMatch = (tourPrice > 500 && tourPrice <= 1000);
+                } else if (priceValue === '1000-1500') {
+                    isPriceMatch = (tourPrice > 1000 && tourPrice <= 1500);
+                } else if (priceValue === '1500-max') {
+                    isPriceMatch = (tourPrice > 1500);
+                }
+
+                if (isDestMatch && isDateMatch && isPriceMatch) {
+                    tour.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    tour.classList.add('hidden');
+                }
+            });
+
+            // Sonuç yok mesajı
+            const noResults = document.getElementById('no-results');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        });
+
+        function resetFilters() {
+            document.getElementById('dest-select').value = 'all';
+            document.getElementById('date-select').value = 'all';
+            document.getElementById('price-select').value = 'all';
+            
+            const tours = document.querySelectorAll('.tour-card');
+            tours.forEach(tour => tour.classList.remove('hidden'));
+            document.getElementById('no-results').classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>

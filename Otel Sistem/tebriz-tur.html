@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tebriz & Kuzey İran Turu - Zöhre Geziyor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: '#C5A059',
+                        teal: '#2C8583',
+                        offWhite: '#F9F9F7',
+                        footerBg: '#4A3426',
+                        footerLight: '#5D4232',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .date-option.selected {
+            border-color: #2C8583;
+            background-color: rgba(44, 133, 131, 0.05);
+        }
+        .gallery-nav-btn {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+        .gallery-nav-btn:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+        .program-item:hover {
+            border-color: #2C8583;
+            box-shadow: 0 4px 12px rgba(44, 133, 131, 0.05);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-[#FAFAFA]">
+
+    <nav class="bg-white border-b border-gray-100 px-8 py-5 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-teal rounded-full flex items-center justify-center text-white font-serif font-bold text-xl">S</div>
+            <span class="font-serif text-2xl font-bold tracking-wide text-gray-800">Zöhre Geziyor</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-teal transition">Ana Sayfa</a>
+            <a href="turlarimiz.html" class="text-teal font-semibold flex items-center gap-1">Turlarımız <i class="fa-solid fa-chevron-down text-xs"></i></a>
+            <a href="hakkimizda.html" class="hover:text-teal transition">Hakkımızda</a>
+            <a href="rehberler.html" class="hover:text-teal transition">Rehberler</a>
+            <a href="iletisim.html" class="hover:text-teal transition">İletişim</a>
+        </div>
+        <div class="hidden md:flex items-center gap-6">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fa-solid fa-phone text-teal"></i>
+                <span>+90 555 123 4567</span>
+            </div>
+            <button class="bg-white border border-gray-200 text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-50 transition">
+                Bize Ulaşın
+            </button>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-8">
+        
+        <div class="text-xs text-gray-400 mb-6 flex items-center gap-2">
+            <a href="index.html" class="hover:text-teal">Ana Sayfa</a> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            <a href="#" class="hover:text-teal">Turlar</a> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            <span class="text-gray-800 font-medium">Tebriz & Kuzey İran Turu</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 relative">
+            
+            <div class="lg:col-span-2">
+                
+                <div class="space-y-8 mb-12">
+                    <div class="relative rounded-2xl overflow-hidden shadow-sm group">
+                        <img src="https://images.unsplash.com/photo-1605151608985-7153a84e9c70?q=80&w=1200&auto=format&fit=crop" class="w-full h-[500px] object-cover">
+                        <div class="absolute top-5 left-5 flex flex-wrap gap-2">
+                            <span class="bg-teal text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"><i class="fa-solid fa-plane-up mr-1"></i> Uçak Dahil</span>
+                            <span class="bg-white text-gray-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Kültür</span>
+                            <span class="bg-white text-gray-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Tarih</span>
+                            <span class="bg-white text-gray-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Doğa</span>
+                        </div>
+                        <div class="absolute top-5 right-5 flex gap-3">
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-red-500 hover:bg-red-50 transition shadow-md"><i class="fa-regular fa-heart"></i></button>
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-teal hover:bg-teal/10 transition shadow-md"><i class="fa-solid fa-share-nodes"></i></button>
+                        </div>
+                        <button class="gallery-nav-btn absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-gray-800 shadow-lg opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="gallery-nav-btn absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-gray-800 shadow-lg opacity-0 group-hover:opacity-100"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+
+                    <div class="flex gap-4 overflow-x-auto pb-2">
+                        <img src="https://images.unsplash.com/photo-1605151608985-7153a84e9c70?q=80&w=200&auto=format&fit=crop" class="w-24 h-24 rounded-lg object-cover border-2 border-teal cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1528642474493-227680331348?q=80&w=200&auto=format&fit=crop" class="w-24 h-24 rounded-lg object-cover border border-transparent opacity-70 hover:opacity-100 cursor-pointer transition">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=200&auto=format&fit=crop" class="w-24 h-24 rounded-lg object-cover border border-transparent opacity-70 hover:opacity-100 cursor-pointer transition">
+                        <img src="https://images.unsplash.com/photo-1518182170546-0766aa6f7a63?q=80&w=200&auto=format&fit=crop" class="w-24 h-24 rounded-lg object-cover border border-transparent opacity-70 hover:opacity-100 cursor-pointer transition">
+                    </div>
+
+                    <div>
+                        <h1 class="font-serif text-4xl lg:text-5xl font-bold text-gray-900 mb-3">Tebriz & Kuzey İran Turu</h1>
+                        <p class="text-gray-500 text-lg mb-6">Tebriz – Erdebil – Makü – Urmiye</p>
+                        <div class="flex flex-wrap gap-6 text-sm text-gray-600 mb-8 border-b border-gray-100 pb-8">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-star text-yellow-400"></i><span class="font-bold text-gray-900">4.8</span><span class="text-gray-400">(87 değerlendirme)</span></div>
+                            <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-teal"></i> 6 Gün / 5 Gece</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-user-group text-teal"></i> 10-18 kişi</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-teal"></i> İstanbul Çıkışlı</div>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-5 flex items-center gap-5 border border-gray-100">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Mustafa Özkan" class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm">
+                            <div>
+                                <div class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-1">Tur Rehberi</div>
+                                <h3 class="font-serif text-xl font-bold text-gray-900">Mustafa Özkan</h3>
+                                <p class="text-teal text-sm">Türk-İran Tarihi Uzmanı</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-gray-100 p-1.5 rounded-xl inline-flex flex-wrap gap-2 mb-8 w-full md:w-auto">
+                        <button class="bg-white text-teal font-bold px-6 py-2 rounded-lg shadow-sm text-sm">Tur Programı</button>
+                        <button class="text-gray-500 hover:text-gray-700 font-medium px-6 py-2 rounded-lg text-sm transition hover:bg-white/50">Dahil / Hariç</button>
+                        <button class="text-gray-500 hover:text-gray-700 font-medium px-6 py-2 rounded-lg text-sm transition hover:bg-white/50">Uçuş Bilgisi</button>
+                        <button class="text-gray-500 hover:text-gray-700 font-medium px-6 py-2 rounded-lg text-sm transition hover:bg-white/50">Konaklama</button>
+                    </div>
+
+                    <div class="space-y-6 text-gray-600 leading-relaxed mb-12">
+                        <p>
+                            İran'ın kuzeybatısında, Türk kültürünün derin izlerini taşıyan kadim Azerbaycan topraklarını keşfediyoruz.
+                        </p>
+                        <p>
+                            Tebriz, yüzyıllardır İpek Yolu'nun en önemli duraklarından biri olmuş, Türk-İslam medeniyetinin nadide eserlerini barındıran bir hazine şehridir. UNESCO Dünya Mirası listesindeki Tebriz Çarşısı, dünyanın en büyük kapalı çarşılarından biridir.
+                        </p>
+                        <p>
+                            Erdebil'de Safevi hanedanının kurucusu Şah İsmail'in türbesini, Makü'de muhteşem doğa manzaralarını ve Urmiye Gölü'nün eşsiz güzelliğini keşfedeceksiniz.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        
+                        <div class="program-item bg-white border border-gray-100 rounded-xl p-5 flex justify-between items-center cursor-pointer transition group">
+                            <div class="flex items-center gap-5">
+                                <div class="w-10 h-10 rounded-full bg-teal/10 text-teal flex items-center justify-center font-bold">1</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">İstanbul – Tebriz</h4>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Akşam Yemeği</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray-300 group-hover:text-teal transition"></i>
+                        </div>
+
+                        <div class="program-item bg-white border border-gray-100 rounded-xl p-5 flex justify-between items-center cursor-pointer transition group">
+                            <div class="flex items-center gap-5">
+                                <div class="w-10 h-10 rounded-full bg-teal/10 text-teal flex items-center justify-center font-bold">2</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Tebriz</h4>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Kahvaltı</span>
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Akşam Yemeği</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray-300 group-hover:text-teal transition"></i>
+                        </div>
+
+                        <div class="program-item bg-white border border-gray-100 rounded-xl p-5 flex justify-between items-center cursor-pointer transition group">
+                            <div class="flex items-center gap-5">
+                                <div class="w-10 h-10 rounded-full bg-teal/10 text-teal flex items-center justify-center font-bold">3</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Tebriz – Erdebil</h4>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Kahvaltı</span>
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Akşam Yemeği</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray-300 group-hover:text-teal transition"></i>
+                        </div>
+
+                        <div class="program-item bg-white border border-gray-100 rounded-xl p-5 flex justify-between items-center cursor-pointer transition group">
+                            <div class="flex items-center gap-5">
+                                <div class="w-10 h-10 rounded-full bg-teal/10 text-teal flex items-center justify-center font-bold">4</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Erdebil – Makü – Urmiye</h4>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Kahvaltı</span>
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Akşam Yemeği</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray-300 group-hover:text-teal transition"></i>
+                        </div>
+
+                        <div class="program-item bg-white border border-gray-100 rounded-xl p-5 flex justify-between items-center cursor-pointer transition group">
+                            <div class="flex items-center gap-5">
+                                <div class="w-10 h-10 rounded-full bg-teal/10 text-teal flex items-center justify-center font-bold">5</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Urmiye</h4>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Kahvaltı</span>
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Akşam Yemeği</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray-300 group-hover:text-teal transition"></i>
+                        </div>
+
+                        <div class="program-item bg-white border border-gray-100 rounded-xl p-5 flex justify-between items-center cursor-pointer transition group">
+                            <div class="flex items-center gap-5">
+                                <div class="w-10 h-10 rounded-full bg-teal/10 text-teal flex items-center justify-center font-bold">6</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Urmiye – İstanbul</h4>
+                                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                                        <span class="flex items-center gap-1"><i class="fa-solid fa-utensils text-gray-400"></i> Kahvaltı</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray-300 group-hover:text-teal transition"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 lg:p-8 sticky top-28">
+                    
+                    <div class="text-center mb-8">
+                        <div class="text-gray-400 text-sm line-through decoration-red-400 mb-1">1099€</div>
+                        <div class="flex items-center justify-center gap-2">
+                            <span class="font-serif text-4xl font-bold text-teal">899</span>
+                            <div class="text-left leading-tight">
+                                <div class="font-bold text-teal text-sm">EUR / kişi</div>
+                                <div class="text-[10px] text-gray-400">İki kişilik odada kişi başı</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="block text-sm font-bold text-gray-900 mb-3">Tur Tarihi Seçin</label>
+                        <div class="space-y-3">
+                            <label class="date-option selected flex items-center justify-between p-3 rounded-xl border-2 cursor-pointer transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="date" checked class="w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                    <span class="text-sm font-medium text-gray-700">5 Nisan 2026 - 10 Nisan 2026</span>
+                                </div>
+                                <span class="text-sm font-bold text-teal">899€</span>
+                            </label>
+                            
+                            <label class="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-teal/50 cursor-pointer transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="date" class="w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                    <span class="text-sm font-medium text-gray-600">3 Mayıs 2026 - 8 Mayıs 2026</span>
+                                </div>
+                                <span class="text-sm font-bold text-teal">899€</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-teal/50 cursor-pointer transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="date" class="w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                    <span class="text-sm font-medium text-gray-600">7 Haziran 2026 - 12 Haziran 2026</span>
+                                </div>
+                                <span class="text-sm font-bold text-teal">849€</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-teal/50 cursor-pointer transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="date" class="w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                    <span class="text-sm font-medium text-gray-600">6 Eylül 2026 - 11 Eylül 2026</span>
+                                </div>
+                                <span class="text-sm font-bold text-teal">899€</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 mt-8">
+                        <button class="w-full bg-teal hover:bg-teal-700 text-white font-bold py-4 rounded-xl transition shadow-lg hover:shadow-xl">
+                            Rezervasyon Yap
+                        </button>
+                        <button class="w-full bg-white border border-gray-200 hover:border-teal hover:text-teal text-gray-700 font-bold py-4 rounded-xl transition">
+                            Bilgi Al
+                        </button>
+                    </div>
+
+                    <div class="mt-8 space-y-2 text-xs text-gray-500 font-medium border-t border-gray-100 pt-6">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-teal"></i> Güvenli Ödeme
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-check text-teal"></i> Uzman Rehberlik
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-bus text-teal"></i> Özel Ulaşım
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-footerBg text-gray-300 mt-20">
+        <div class="border-b border-white/10">
+            <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="font-serif text-2xl font-bold text-white mb-2">En Güncel Turlardan Haberdar Olun</h3>
+                    <p class="text-sm text-gray-400">Özel fırsatlar, yeni rotalar ve seyahat ipuçları için bültenimize abone olun.</p>
+                </div>
+                <div class="flex w-full md:w-auto gap-2">
+                    <div class="relative flex-grow md:flex-grow-0">
+                        <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                        <input type="email" placeholder="E-posta adresiniz" class="w-full md:w-80 bg-white text-gray-800 rounded-full pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold">
+                    </div>
+                    <button class="bg-gold hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-full transition flex items-center gap-2">
+                        Abone Ol <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal rounded-full flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-plane-up"></i>
+                        </div>
+                        <span class="font-serif text-2xl font-bold text-white">Zöhre Geziyor</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-gray-400">
+                        Her rotayı bir keşfe, her anı ise Seyir Defterinize yazılan unutulmaz bir hatıraya dönüştürüyoruz. Bizim için insan değerlidir, seyahat bir sanattır.
+                    </p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-gold"></i> Beşiktaş, İstanbul, Türkiye</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-gold"></i> +90 555 123 4567</div>
+                        <div class="flex items-center gap-3"><i class="fa-regular fa-envelope text-gold"></i> info@zohregeziyor.com</div>
+                        <div class="flex items-center gap-3"><i class="fa-regular fa-clock text-gold"></i> Pzt - Cmt: 09:00 - 19:00</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Turlarımız</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gold transition">Yurtdışı Turları</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Yurtiçi Turları</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Kültür Turları</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Doğa Turları</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Tüm Turlar</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Kurumsal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gold transition">Hakkımızda</a></li>
+                        <li><a href="rehberler.html" class="hover:text-gold transition">Rehberlerimiz</a></li>
+                        <li><a href="blog.html" class="hover:text-gold transition">Blog</a></li>
+                        <li><a href="kariyer.html" class="hover:text-gold transition">Kariyer</a></li>
+                        <li><a href="iletisim.html" class="hover:text-gold transition">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Destek</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gold transition">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Ödeme Seçenekleri</a></li>
+                        <li><a href="#" class="hover:text-gold transition">İptal ve İade</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Seyahat Sigortası</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Vize Hizmetleri</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/10 bg-black/10">
+            <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <div>© 2026 Candemir Yazılım. Tüm hakları saklıdır.</div>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="flex gap-6">
+                    <a href="gizlilik-politikasi.html" class="hover:text-white transition">Gizlilik Politikası</a>
+                    <a href="kullanim-sartlari.html" class="hover:text-white transition">Kullanım Şartları</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

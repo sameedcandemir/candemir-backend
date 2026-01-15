@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - Zöhre Geziyor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: '#C5A059',
+                        teal: '#2C8583',
+                        darkOverlay: 'rgba(30, 20, 10, 0.65)',
+                        offWhite: '#F9F9F7', 
+                        footerBg: '#4A3426',
+                        footerLight: '#5D4232',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        #main-nav {
+            transition: all 0.4s ease-in-out;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .policy-section {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+        .policy-section:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-[#FAFAFA]">
+
+    <nav class="bg-white border-b border-gray-100 px-8 py-5 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <img src="logo3.png" alt="Zöhre Geziyor Logo" class="h-12 w-auto object-contain">
+        </div>
+
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-teal transition">Ana Sayfa</a>
+            <a href="turlarimiz.html" class="hover:text-teal transition">Turlarımız</a>
+            <a href="hakkimizda.html" class="hover:text-teal transition">Hakkımızda</a>
+            <a href="rehberler.html" class="hover:text-teal transition">Rehberler</a>
+            <a href="iletisim.html" class="hover:text-teal transition">İletişim</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-6">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fa-solid fa-phone text-teal"></i>
+                <span>+90 555 123 4567</span>
+            </div>
+            <button class="bg-white border border-gray-200 text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-50 transition">
+                Bize Ulaşın
+            </button>
+        </div>
+    </nav>
+
+    <div class="bg-teal py-20 px-6 text-center text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <i class="fa-solid fa-shield-halved text-[20rem] absolute -right-20 -bottom-20"></i>
+        </div>
+        <div class="relative z-10 container mx-auto">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold mb-4">Gizlilik Politikası</h1>
+            <p class="text-teal-100 text-lg max-w-2xl mx-auto">Verilerinizin güvenliği bizim için, en az seyahatleriniz kadar önemlidir.</p>
+            <div class="mt-6 inline-block bg-white/10 px-4 py-1 rounded-full text-sm text-teal-50 border border-white/20">
+                Son Güncelleme: 1 Ocak 2026
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 py-16 max-w-4xl">
+        <div class="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-gray-100">
+            
+            <div class="policy-section">
+                <h2 class="font-serif text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center text-teal text-sm">1</span>
+                    Veri Sorumlusu ve Giriş
+                </h2>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Bu Gizlilik Politikası, <strong>Candemir Yazılım</strong> bünyesinde faaliyet gösteren <strong>Zöhre Geziyor</strong> ("Şirket", "Biz") tarafından işletilen web sitesi ve hizmetler aracılığıyla toplanan kişisel verilerinizin nasıl işlendiğini, saklandığını ve korunduğunu açıklamaktadır.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verileriniz aşağıda açıklanan kapsamda işlenecektir.
+                </p>
+            </div>
+
+            <div class="policy-section">
+                <h2 class="font-serif text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center text-teal text-sm">2</span>
+                    Toplanan Kişisel Veriler
+                </h2>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Hizmetlerimizden yararlanmanız sırasında aşağıdaki verileriniz toplanabilir:
+                </p>
+                <ul class="space-y-3 text-gray-600 list-none pl-2">
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal mt-1"></i> <span><strong>Kimlik Bilgileri:</strong> Ad, soyad, T.C. kimlik numarası, pasaport numarası.</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal mt-1"></i> <span><strong>İletişim Bilgileri:</strong> E-posta adresi, telefon numarası, ikametgah adresi.</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal mt-1"></i> <span><strong>Müşteri İşlem Bilgileri:</strong> Tur rezervasyon detayları, fatura bilgileri, talep ve şikayetler.</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal mt-1"></i> <span><strong>İşlem Güvenliği Bilgileri:</strong> IP adresi, internet sitesi giriş-çıkış kayıtları, çerez kayıtları.</span></li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2 class="font-serif text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center text-teal text-sm">3</span>
+                    Kişisel Verilerin İşlenme Amaçları
+                </h2>
+                <p class="text-gray-600 leading-relaxed mb-4">Toplanan kişisel verileriniz şu amaçlarla işlenmektedir:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-offWhite p-4 rounded-xl border border-gray-100">
+                        <h3 class="font-bold text-gray-800 mb-2">Hizmet Süreçleri</h3>
+                        <p class="text-sm text-gray-500">Tur rezervasyonlarının yapılması, uçak bileti ve otel rezervasyonlarının gerçekleştirilmesi, vize işlemlerinin yürütülmesi.</p>
+                    </div>
+                    <div class="bg-offWhite p-4 rounded-xl border border-gray-100">
+                        <h3 class="font-bold text-gray-800 mb-2">Yasal Yükümlülükler</h3>
+                        <p class="text-sm text-gray-500">Fatura kesilmesi, yetkili kurum ve kuruluşlara (TÜRSAB, Emniyet vb.) gerekli bildirimlerin yapılması.</p>
+                    </div>
+                    <div class="bg-offWhite p-4 rounded-xl border border-gray-100">
+                        <h3 class="font-bold text-gray-800 mb-2">İletişim</h3>
+                        <p class="text-sm text-gray-500">Tur öncesi ve sonrası bilgilendirme yapılması, olası değişikliklerin haber verilmesi.</p>
+                    </div>
+                    <div class="bg-offWhite p-4 rounded-xl border border-gray-100">
+                        <h3 class="font-bold text-gray-800 mb-2">Pazarlama (Opsiyonel)</h3>
+                        <p class="text-sm text-gray-500">Açık rızanız olması halinde, yeni turlar ve kampanyalar hakkında bilgilendirme yapılması.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h2 class="font-serif text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center text-teal text-sm">4</span>
+                    Verilerin Paylaşımı
+                </h2>
+                <p class="text-gray-600 leading-relaxed">
+                    Kişisel verileriniz; hizmetin ifası için zorunlu olduğu ölçüde iş ortaklarımızla (havayolu şirketleri, oteller, yerel rehberler, sigorta şirketleri) ve kanunen yetkili kamu kurumlarıyla paylaşılmaktadır. Verileriniz, yasal zorunluluklar ve hizmet gereklilikleri dışında üçüncü kişilerle asla ticari amaçla paylaşılmaz.
+                </p>
+            </div>
+
+            <div class="policy-section">
+                <h2 class="font-serif text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center text-teal text-sm">5</span>
+                    Çerez (Cookie) Politikası
+                </h2>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Sitemizde, kullanıcı deneyimini iyileştirmek ve site trafiğini analiz etmek amacıyla çerezler kullanılmaktadır.
+                </p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 ml-2">
+                    <li><strong>Zorunlu Çerezler:</strong> Sitenin temel fonksiyonlarının çalışması için gereklidir.</li>
+                    <li><strong>Analitik Çerezler:</strong> Ziyaretçi sayıları ve trafik kaynaklarını ölçmemize yarar.</li>
+                    <li><strong>Pazarlama Çerezleri:</strong> İlgi alanlarınıza göre reklamlar sunmak için kullanılır (Onayınıza tabidir).</li>
+                </ul>
+                <p class="text-gray-600 text-sm mt-4 italic">Tarayıcı ayarlarınızdan çerezleri dilediğiniz zaman silebilir veya engelleyebilirsiniz.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2 class="font-serif text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center text-teal text-sm">6</span>
+                    Haklarınız
+                </h2>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    KVKK'nın 11. maddesi uyarınca bize başvurarak kişisel verilerinizin;
+                </p>
+                <div class="bg-teal/5 p-6 rounded-xl border border-teal/10">
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>• İşlenip işlenmediğini öğrenme,</li>
+                        <li>• İşlenmişse buna ilişkin bilgi talep etme,</li>
+                        <li>• Amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
+                        <li>• Eksik veya yanlış işlenmişse düzeltilmesini isteme,</li>
+                        <li>• Silinmesini veya yok edilmesini isteme haklarına sahipsiniz.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="font-serif text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center text-teal text-sm">7</span>
+                    İletişim
+                </h2>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    Gizlilik politikamız veya kişisel verilerinizle ilgili her türlü soru ve talebiniz için bize ulaşabilirsiniz.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-teal"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <div class="text-xs text-gray-400">E-Posta</div>
+                            <div class="font-bold text-gray-800">kvkk@zohregeziyor.com</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-teal"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <div class="text-xs text-gray-400">Telefon</div>
+                            <div class="font-bold text-gray-800">+90 555 123 4567</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-teal"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <div class="text-xs text-gray-400">Adres</div>
+                            <div class="font-bold text-gray-800">Bahçelievler, Ankara</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-footerBg text-gray-300">
+        <div class="border-b border-white/10">
+            <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="font-serif text-2xl font-bold text-white mb-2">En Güncel Turlardan Haberdar Olun</h3>
+                    <p class="text-sm text-gray-400">Özel fırsatlar, yeni rotalar ve seyahat ipuçları için bültenimize abone olun.</p>
+                </div>
+                <div class="flex w-full md:w-auto gap-2">
+                    <div class="relative flex-grow md:flex-grow-0">
+                        <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                        <input type="email" placeholder="E-posta adresiniz" class="w-full md:w-80 bg-white text-gray-800 rounded-full pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold">
+                    </div>
+                    <button class="bg-gold hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-full transition flex items-center gap-2">
+                        Abone Ol <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-teal rounded-full flex items-center justify-center text-white text-xl"><i class="fa-solid fa-plane-up"></i></div><span class="font-serif text-2xl font-bold text-white">Zöhre Geziyor</span></div>
+                    <p class="text-sm leading-relaxed text-gray-400">Her rotayı bir keşfe, her anı ise Seyir Defterinize yazılan unutulmaz bir hatıraya dönüştürüyoruz.</p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-gold"></i> Bahçelievler, Ankara, Türkiye</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-gold"></i> +90 555 123 4567</div>
+                        <div class="flex items-center gap-3"><i class="fa-regular fa-envelope text-gold"></i> info@zohregeziyor.com</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Kurumsal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="hakkimizda.html" class="hover:text-gold transition">Hakkımızda</a></li>
+                        <li><a href="rehberler.html" class="hover:text-gold transition">Rehberlerimiz</a></li>
+                        <li><a href="iletisim.html" class="hover:text-gold transition">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-white mb-6">Destek</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gold transition">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Vize Hizmetleri</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/10 bg-black/10">
+            <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <div>© 2026 Candemir Yazılım. Tüm hakları saklıdır.</div>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-footerLight flex items-center justify-center text-gray-300 hover:bg-gold hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
